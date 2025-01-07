@@ -30,7 +30,7 @@ MiRZAでユーザーが体験している映像の録画機能を提供するUni
 ## 使い方
 
 > MiRZA用の基本的なプロジェクト､ シーンのセットアップが完了していることを前提とします｡  
-> [Camera Accessの](https://www.devices.nttqonoq.com/developer/doc/features/camera-frame-access/) 設定も必要です｡
+> [Camera Access](https://www.devices.nttqonoq.com/developer/doc/features/camera-frame-access/) の設定も必要です｡
 
 1. ARCameraManagerが有効であることを確認してください｡
 2. サンプルのRecorder Prefabをシーンに配置します｡
@@ -50,7 +50,7 @@ adb pull /storage/emulated/0/Android/data/com.hoge.huga/files/recorded.mp4
 
 | 録画品質 | 解像度      |
 | -------- | ----------- |
-| Low      | 640 x 360   |
+| Low      | 720 x 480   |
 | Medium   | 1280 x 720  |
 | High     | 1920 x 1080 |
 
