@@ -1,0 +1,10 @@
+{
+  "name": "Upft.MRRecorder.Sample",
+  "references": [
+    "Unity.XR.ARFoundation",
+    "Unity.XR.ARSubsystems",
+    "UniTask",
+    "Upft.MRRecorder.Runtime",
+    "Unity.TextMeshPro"
+  ]
+}
