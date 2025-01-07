@@ -19,7 +19,6 @@ namespace Upft.MRRecorder.Runtime.MediaCodec
         private bool _isDisposed;
         private bool _isEncoding;
 
-
         public void StartEncoding(VideoEncodingOptions options)
         {
             RecordLogger.Debug($"Start Encoding");
@@ -36,14 +35,14 @@ namespace Upft.MRRecorder.Runtime.MediaCodec
 
                 using var format = new MediaFormat();
                 format.SetString("mime", MediaFormat.MIMETYPE_VIDEO_AVC);
-                format.SetInteger("width", _resolution.Width);
-                format.SetInteger("height", _resolution.Height);
-                format.SetInteger("frame-rate", _resolution.FrameRate);
-                format.SetInteger("bitrate", MediaFormat.DEFAULT_BIT_RATE);
-                format.SetInteger("i-frame-interval", 1);
+                format.SetInteger("width", options.Resolution.Width);
+                format.SetInteger("height", options.Resolution.Height);
+                format.SetInteger("frame-rate", options.Resolution.FrameRate);
+                format.SetInteger("bitrate", options.Bitrate ?? options.CalculateDefaultBitrate());
+                format.SetInteger("i-frame-interval", options.KeyFrameInterval);
                 format.SetInteger("color-format", MediaCodec.COLOR_FORMAT_YUV420_FLEXIBLE);
-                format.SetInteger("priority", 0);
-                format.SetInteger("low-latency", 1);
+                format.SetInteger("priority", options.Priority);
+                format.SetInteger("low-latency", options.LowLatencyMode ? 1 : 0);
 
                 _codec = MediaCodec.CreateEncoderByType(MediaFormat.MIMETYPE_VIDEO_AVC);
                 _codec.Configure(format, null, null, MediaCodec.ConfigureFlag.Encode);
