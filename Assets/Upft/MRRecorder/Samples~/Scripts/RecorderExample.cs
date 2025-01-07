@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using Upft.MRRecorder.Runtime;
@@ -21,6 +22,19 @@ namespace Upft.MRRecorder.Sample
 
         [SerializeField]
         private TMP_Dropdown _qualityDropdown;
+        
+        [Header("Encoding Options")]
+        [SerializeField]
+        private bool _useDefaultBitrate = true;
+        [SerializeField]
+        private int _customBitrate = 9_000_000;
+        [SerializeField]
+        private bool _lowLatencyMode = false;
+        [SerializeField]
+        private int _keyFrameInterval = 1;
+        [SerializeField]
+        private int _priority = 0;
+        
 
         private VideoRecorder _recorder;
 
@@ -44,7 +58,7 @@ namespace Upft.MRRecorder.Sample
                     var resolution = ((ResolutionQuality)_qualityDropdown.value).ToResolution();
                     var outputPath = PathUtils.GetDefaultOutputPath();
                     var fileName = PathUtils.GetDefaultVideoFileName();
-                    _recorder.StartRecording(new(resolution, outputPath, fileName));
+                    _recorder.StartRecording(new(resolution, outputPath, fileName, _useDefaultBitrate ? null : _customBitrate, _lowLatencyMode, _keyFrameInterval, _priority));
                 }
             });
         }

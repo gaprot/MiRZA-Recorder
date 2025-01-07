@@ -6,7 +6,6 @@ namespace Upft.MRRecorder.Runtime.MediaCodec
     public class MediaFormat : IDisposable
     {
         public const string MIMETYPE_VIDEO_AVC = "video/avc"; // H.264/AVC
-        public const int DEFAULT_BIT_RATE = 8_000_000; // 8Mbps
 
         public AndroidJavaObject Instance { get; } = new("android.media.MediaFormat");
 
