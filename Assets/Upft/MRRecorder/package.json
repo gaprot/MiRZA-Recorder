@@ -1,14 +1,13 @@
 {
   "name": "com.upft.mr-recorder",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "displayName": "MRRecorder",
   "description": "Mixed Reality Video Recorder",
   "keywords": [
     "mixed reality",
     "recorder"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "author": {
     "name": "Up-frontier, Inc."
   },
