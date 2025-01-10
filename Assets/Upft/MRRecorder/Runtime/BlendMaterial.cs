@@ -8,7 +8,6 @@ namespace Upft.MRRecorder.Runtime
         private const string ShaderName = "Hidden/MRBlend";
         private readonly int _mainTexProperty = Shader.PropertyToID("_MainTex");
         private readonly int _cameraTexProperty = Shader.PropertyToID("_CameraTex");
-        private readonly int _blendFactorProperty = Shader.PropertyToID("_BlendFactor");
         private readonly int _sceneScale = Shader.PropertyToID("_SceneScale");
 
         private Material _blendMaterial;

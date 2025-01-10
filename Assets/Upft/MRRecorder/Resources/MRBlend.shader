@@ -4,7 +4,6 @@ Shader "Hidden/MRBlend"
     {
         _MainTex ("Scene Texture", 2D) = "black" {}
         _CameraTex ("Camera Texture", 2D) = "white" {}
-        _BlendFactor ("Blend Factor", Float) = 0.8
         _SceneScale ("Scene Scale", Vector) = (0.25, 0.25, 0, 0) 
     }
     
@@ -36,8 +35,7 @@ Shader "Hidden/MRBlend"
 
             sampler2D _MainTex;
             sampler2D _CameraTex;
-            float _BlendFactor;
-            float2 _SceneScale; // 追加
+            float2 _SceneScale; 
 
             v2f vert (appdata v)
             {
@@ -64,8 +62,6 @@ Shader "Hidden/MRBlend"
                 if (inBounds)
                 {
                     scene = tex2D(_MainTex, sceneUV);
-                    //float brightness = (scene.r + scene.g + scene.b) / 3.0;
-                    //mask = brightness < 0.1 ? 0.0 : _BlendFactor;
                     mask = scene.a;
                 }
                 else
