@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Threading;
 using Unity.Collections;
 using UnityEngine;
@@ -179,6 +180,29 @@ namespace Upft.MRRecorder.Runtime
 
                 _encoder.Complete();
                 RecordLogger.Info($"Recording stopped. Duration: {duration.TotalSeconds:F2} sec");
+
+#if MR_RECORDER_USE_NATIVE_GALLERY
+                var videoPath = Path.Combine(_options.OutputDir, _options.FileName);
+                var albumName = PathUtils.GetDefaultAlbumName();
+                if (File.Exists(videoPath))
+                {
+                    NativeGallery.SaveVideoToGallery(
+                        videoPath,
+                        albumName,
+                        _options.FileName,
+                        callback: (success, path) =>
+                        {
+                            if (success)
+                            {
+                                File.Delete(videoPath);
+                            }
+                            else
+                            {
+                                RecordLogger.Error($"Failed to save video to gallery. Path: {path}");
+                            }
+                        });
+                }
+#endif
             }
             catch (OperationCanceledException)
             {
