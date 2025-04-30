@@ -57,7 +57,8 @@ adb pull /storage/emulated/0/Android/data/com.hoge.huga/files/recorded.mp4
 ### ギャラリーへの保存
 プロジェクトの Player Settings で Define Symbols に `MR_RECORDER_USE_NATIVE_GALLERY` を追加することで、録画した動画をデバイスのギャラリー（写真アプリ）に直接保存することができます。  
 
-**注意**: この機能を使用するには、事前に [UnityNativeGallery](https://github.com/yasirkula/UnityNativeGallery) をプロジェクトにインポートしておく必要があります。  
+> [!IMPORTANT]
+> この機能を使用するには、事前に [UnityNativeGallery](https://github.com/yasirkula/UnityNativeGallery) をプロジェクトにインポートしておく必要があります。  
 
 ## 注意事項
 
