@@ -196,6 +196,10 @@ namespace Upft.MRRecorder.Runtime
                             {
                                 File.Delete(videoPath);
                             }
+                            else
+                            {
+                                RecordLogger.Error($"Failed to save video to gallery. Path: {path}");
+                            }
                         });
                 }
 #endif
