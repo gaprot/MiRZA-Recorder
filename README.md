@@ -38,7 +38,7 @@ MiRZAでユーザーが体験している映像の録画機能を提供するUni
 4. 実機で実行します｡
 
 赤いボタンを押すと録画開始､ 緑のボタンを押すと録画停止されます｡  
-録画した動画は､ /storage/emulated/0/Android/data/com.hoge.huga/files 内に保存されます｡  
+録画した動画は､ デフォルトでは`/storage/emulated/0/Android/data/com.hoge.huga/files` 内に保存されます｡  
 adbコマンドを使って取り出すことができます｡
 
 ```
@@ -53,6 +53,11 @@ adb pull /storage/emulated/0/Android/data/com.hoge.huga/files/recorded.mp4
 | Low      | 720 x 480   |
 | Medium   | 1280 x 720  |
 | High     | 1920 x 1080 |
+
+### ギャラリーへの保存
+プロジェクトの Player Settings で Define Symbols に `MR_RECORDER_USE_NATIVE_GALLERY` を追加することで、録画した動画をデバイスのギャラリー（写真アプリ）に直接保存することができます。  
+
+**注意**: この機能を使用するには、事前に [UnityNativeGallery](https://github.com/yasirkula/UnityNativeGallery) をプロジェクトにインポートしておく必要があります。  
 
 ## 注意事項
 
